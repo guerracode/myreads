@@ -10,7 +10,8 @@ class ListBooks extends Component {
    };
 
    render() {
-      const { currentlyReading, wantToRead, read, changeShelf } = this.props;
+      const { currentlyReading, wantToRead, read, changeShelf, history } =
+         this.props;
 
       return (
          <div className="list-books">
@@ -22,16 +23,19 @@ class ListBooks extends Component {
                   shelfName="Currently Reading"
                   books={currentlyReading}
                   changeShelf={changeShelf}
+                  history={history}
                />
                <BookShelf
                   shelfName="Want to Read"
                   books={wantToRead}
                   changeShelf={changeShelf}
+                  history={history}
                />
                <BookShelf
                   shelfName="Read"
                   books={read}
                   changeShelf={changeShelf}
+                  history={history}
                />
             </div>
             <div className="open-search">

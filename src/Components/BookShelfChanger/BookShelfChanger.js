@@ -12,6 +12,7 @@ class BookShelfChanger extends Component {
    handleSelect = (event) => {
       this.setState({ value: event.target.value });
       this.props.changeShelf(this.props.book, event.target.value);
+      this.props.history.push('/');
    };
 
    render() {

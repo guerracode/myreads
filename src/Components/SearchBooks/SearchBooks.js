@@ -41,7 +41,7 @@ class SearchBooks extends Component {
    };
 
    render() {
-      const { changeShelf } = this.props;
+      const { changeShelf, history } = this.props;
 
       return (
          <div className="search-books">
@@ -71,6 +71,7 @@ class SearchBooks extends Component {
                            book={book}
                            changeShelf={changeShelf}
                            key={book.id}
+                           history={history}
                         />
                      ))}
                   </ol>

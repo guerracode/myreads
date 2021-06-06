@@ -37,7 +37,7 @@ class BooksApp extends Component {
          this.updateBook(
             book,
             newShelf,
-            "Sorry we had an error we couldn't remove your book"
+            "Sorry we had an error, we couldn't remove your book"
          );
          return;
       }
@@ -56,7 +56,7 @@ class BooksApp extends Component {
       this.updateBook(
          newBook,
          newShelf,
-         "Sorry we had an error we couldn't move your book to another shelf"
+         "Sorry we had an error, we couldn't move your book to another shelf"
       );
    };
 
@@ -71,7 +71,7 @@ class BooksApp extends Component {
             });
          })
          .catch(() =>
-            window.alert("Sorry we had an error we couldn't get your books")
+            window.alert("Sorry we had an error, we couldn't get your books")
          );
    }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import BookShelfChanger from '../BookShelfChanger/BookShelfChanger';
 
-const Book = ({ book, changeShelf }) => (
+const Book = ({ book, changeShelf, history }) => (
    <li>
       <div className="book">
          <div className="book-top">
@@ -13,7 +13,11 @@ const Book = ({ book, changeShelf }) => (
                   backgroundImage: `url(${book.imageLinks?.thumbnail})`,
                }}
             ></div>
-            <BookShelfChanger changeShelf={changeShelf} book={book} />
+            <BookShelfChanger
+               changeShelf={changeShelf}
+               book={book}
+               history={history}
+            />
          </div>
          <div className="book-title">{book.title && book.title}</div>
          {book.authors?.map((author) => (
