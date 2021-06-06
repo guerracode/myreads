@@ -6,89 +6,103 @@ import SearchBooks from './Components/SearchBooks/SearchBooks';
 import './App.css';
 
 class BooksApp extends Component {
-  state = {
-    currentlyReading: [],
-    wantToRead: [],
-    read: [],
-  };
+   state = {
+      allBooks: [],
+      currentlyReading: [],
+      wantToRead: [],
+      read: [],
+   };
 
-  filterBooks = (array, type) =>
-    array.filter((item) => {
-      return item.shelf === type;
-    });
+   filterBooks = (array, type) =>
+      array.filter((item) => {
+         return item.shelf === type;
+      });
 
-  deleteBook = (book) => {
-    this.setState((currentState) => ({
-      [book.shelf]: currentState[book.shelf].filter(
-        (item) => item.id !== book.id
-      ),
-    }));
-  };
+   deleteBook = (book) => {
+      this.setState((currentState) => ({
+         [book.shelf]: currentState[book.shelf].filter(
+            (item) => item.id !== book.id
+         ),
+      }));
+   };
 
-  changeShelf = (book, newShelf) => {
-    let newBook = '';
-    if (book.shelf) {
-      this.deleteBook(book);
+   updateBook = (book, newShelf, errorMessage = 'Error at updating') => {
+      BooksAPI.update(book, newShelf).catch(() => window.alert(errorMessage));
+   };
+
+   changeShelf = (book, newShelf) => {
+      // Delete book
+      if (book.shelf && newShelf === 'none') {
+         this.deleteBook(book);
+         this.updateBook(
+            book,
+            newShelf,
+            "Sorry we had an error we couldn't remove your book"
+         );
+         return;
+      }
+
+      // Move book to another shelf
+      let newBook = '';
+      if (book.shelf) this.deleteBook(book);
+
       newBook = { ...book, shelf: newShelf };
-    }
-    this.setState((currentState) => ({
-      [newShelf]: [...currentState[newShelf], newBook || book],
-    }));
 
-    BooksAPI.update(book, newShelf)
-      .then((res) => {
-        console.log('Update', res);
-      })
-      .catch(() =>
-        window.alert(
-          "Sorry we had an error we couldn't move your book to another shelf"
-        )
+      this.setState((currentState) => ({
+         allBooks: [...currentState.allBooks, newBook],
+         [newShelf]: [...currentState[newShelf], newBook],
+      }));
+
+      this.updateBook(
+         newBook,
+         newShelf,
+         "Sorry we had an error we couldn't move your book to another shelf"
       );
-  };
+   };
 
-  componentDidMount() {
-    BooksAPI.getAll()
-      .then((books) => {
-        this.setState({
-          currentlyReading: this.filterBooks(books, 'currentlyReading'),
-          wantToRead: this.filterBooks(books, 'wantToRead'),
-          read: this.filterBooks(books, 'read'),
-        });
-        console.log('Books', books);
-      })
-      .catch(() =>
-        window.alert("Sorry we had an error we couldn't get your books")
+   componentDidMount() {
+      BooksAPI.getAll()
+         .then((books) => {
+            this.setState({
+               allBooks: books,
+               currentlyReading: this.filterBooks(books, 'currentlyReading'),
+               wantToRead: this.filterBooks(books, 'wantToRead'),
+               read: this.filterBooks(books, 'read'),
+            });
+         })
+         .catch(() =>
+            window.alert("Sorry we had an error we couldn't get your books")
+         );
+   }
+
+   render() {
+      return (
+         <div className="app">
+            <Route
+               exact
+               path="/"
+               render={(props) => (
+                  <ListBooks
+                     changeShelf={this.changeShelf}
+                     {...this.state}
+                     {...props}
+                  />
+               )}
+            />
+            <Route
+               exact
+               path="/search"
+               component={(props) => (
+                  <SearchBooks
+                     changeShelf={this.changeShelf}
+                     allBooks={this.state.allBooks}
+                     {...props}
+                  />
+               )}
+            />
+         </div>
       );
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <ListBooks
-              changeShelf={this.changeShelf}
-              {...this.state}
-              {...props}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/search"
-          component={(props) => (
-            <SearchBooks
-              changeShelf={this.changeShelf}
-              {...this.state}
-              {...props}
-            />
-          )}
-        />
-      </div>
-    );
-  }
+   }
 }
 
 export default BooksApp;
