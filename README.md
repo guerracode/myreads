@@ -8,7 +8,7 @@
   <p align="center">
     Project created by: </br> <strong> Jose Luis Chavez Guerra </strong>
     <br />
-    <a href="https://keen-darwin-cb3671.netlify.app/"><strong>View Project »</strong></a>
+    <a href="https://guerracode-myreads.netlify.app/"><strong>View Project »</strong></a>
     <br />
     <br />
     ·
@@ -46,7 +46,7 @@ These are the main technologies used in the project:
 -  install all project dependencies with `npm install`
 -  start the development server with `npm start`
 
-Or view the page directly by clicking on this [link](https://keen-darwin-cb3671.netlify.app/)
+Or view the page directly by clicking on this [link](https://guerracode-myreads.netlify.app/)
 
 <!-- CONTRIBUTING -->
 </br>
