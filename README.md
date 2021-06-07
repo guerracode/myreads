@@ -37,6 +37,7 @@ These are the main technologies used in the project:
 
 <img src="./src/Assets/img/myReadsPage_screenshot.png" alt="screenshot">
 <img src="./src/Assets/img/searchPage_screenshot.png" alt="screenshot">
+<img src="./src/Assets/img/bookDescription_screenshot.png" alt="screenshot">
 
 <!-- GETTING STARTED -->
 
