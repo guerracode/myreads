@@ -1,5 +1,5 @@
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/60c48174-02b6-4083-85d3-bcc838e71b79/deploy-status)](https://guerracode-myreads.netlify.app)
 
 <br />
 <p align="center">
@@ -8,7 +8,7 @@
   <p align="center">
     Project created by: </br> <strong> Jose Luis Chavez Guerra </strong>
     <br />
-    <a href=""><strong>View Project »</strong></a>
+    <a href="https://keen-darwin-cb3671.netlify.app/"><strong>View Project »</strong></a>
     <br />
     <br />
     ·
@@ -45,7 +45,7 @@ These are the main technologies used in the project:
 -  install all project dependencies with `npm install`
 -  start the development server with `npm start`
 
-Or view the page directly by clicking on this [link](https://twitter.com/guerracode)
+Or view the page directly by clicking on this [link](https://keen-darwin-cb3671.netlify.app/)
 
 <!-- CONTRIBUTING -->
 </br>

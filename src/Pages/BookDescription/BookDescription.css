@@ -1,0 +1,114 @@
+.bookDescription {
+   height: 100vh;
+}
+.bookDescription p,
+h1,
+h4,
+h3 {
+   padding: 0;
+   margin: 0;
+}
+
+.bookDescription {
+   height: 100vh;
+}
+
+.bookDescription-back {
+   background-color: #2e7d32;
+}
+
+.bookDescription-description {
+   display: flex;
+   height: calc(100% - 55px);
+}
+
+/* Left side */
+.bookDescription-left-side {
+   width: 30%;
+}
+
+.bookDescription-left-side .leftSide-categories {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: center;
+   height: 100px;
+}
+
+.bookDescription-left-side .leftSide-image {
+   height: auto;
+   text-align: center;
+}
+.bookDescription-left-side .leftSide-image img {
+   width: 100%;
+   max-width: 300px;
+}
+
+.bookDescription-left-side .leftSide-authors {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+/* Right side */
+.bookDescription-right-side {
+   width: 70%;
+   padding: 10px;
+}
+.bookDescription-right-side .rightSide-titles {
+   display: grid;
+   align-content: end;
+   height: 200px;
+}
+.bookDescription-right-side .rightSide-titles p {
+   color: #08490b;
+}
+.bookDescription-right-side .rightSide-titles p span {
+   font-weight: bold;
+}
+.bookDescription-right-side .rightSide-titles h1 {
+   font-size: 3rem;
+}
+.bookDescription-right-side .rightSide-titles h3 {
+   font-size: 1.5rem;
+   color: grey;
+}
+
+.bookDescription-right-side .rightSide-info {
+   display: flex;
+   margin: 20px 0;
+}
+.bookDescription-right-side .rightSide-info p {
+   margin-right: 20px;
+   color: #08490b;
+   font-weight: bold;
+}
+.bookDescription-right-side .rightSide-info p:not(:last-child)::after {
+   content: '|';
+   margin-left: 20px;
+   color: #2e7d32;
+}
+
+.bookDescription-right-side > p {
+   padding: 10px 0;
+   padding-right: 30px;
+}
+
+@media (max-width: 768px) {
+   .bookDescription-description {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .bookDescription-left-side {
+      width: 100%;
+   }
+
+   .bookDescription-right-side {
+      width: 100%;
+      padding: 0 40px 30px;
+   }
+   .bookDescription-right-side > p {
+      padding-right: 0;
+   }
+}

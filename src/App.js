@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
-import ListBooks from './Components/ListBooks/ListBooks';
-import SearchBooks from './Components/SearchBooks/SearchBooks';
+import ListBooks from './Pages/ListBooks/ListBooks';
+import SearchBooks from './Pages/SearchBooks/SearchBooks';
+import BookDescription from './Pages/BookDescription/BookDescription';
 import './App.css';
 
 class BooksApp extends Component {
@@ -69,6 +70,7 @@ class BooksApp extends Component {
                wantToRead: this.filterBooks(books, 'wantToRead'),
                read: this.filterBooks(books, 'read'),
             });
+            console.log('Books', books);
          })
          .catch(() =>
             window.alert("Sorry we had an error, we couldn't get your books")
@@ -99,6 +101,10 @@ class BooksApp extends Component {
                      {...props}
                   />
                )}
+            />
+            <Route
+               path="/book/:id"
+               component={(props) => <BookDescription {...props} />}
             />
          </div>
       );

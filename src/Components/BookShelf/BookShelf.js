@@ -10,8 +10,8 @@ const BookShelf = ({ shelfName, books, changeShelf, history }) => (
                <Book
                   book={book}
                   changeShelf={changeShelf}
-                  key={book.id}
                   history={history}
+                  key={book.id}
                />
             ))}
          </ol>

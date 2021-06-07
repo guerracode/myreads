@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { debounce } from 'throttle-debounce';
 import { search } from '../../BooksAPI';
-import Book from '../Book/Book';
+import Book from '../../Components/Book/Book';
+import '../BookDescription/BookDescription.css';
 
 class SearchBooks extends Component {
    state = {
